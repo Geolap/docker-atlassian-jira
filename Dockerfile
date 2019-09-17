@@ -30,7 +30,8 @@ RUN set -x \
     && rm -f                   "${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar" \
     && wget -q -P              "${JIRA_INSTALL}/lib" "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre6.jar" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*atlassian-universal-plugin-manager-plugin*.jar" \
-    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/23915/version/139020" \# atlassian-universal-plugin-manager-plugin
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/23915/version/139020" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/5129/version/1930" \
     && chmod -R 700            "${JIRA_HOME}/plugins" \
     && chown -R daemon:daemon  "${JIRA_HOME}/plugins"
 
