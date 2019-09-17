@@ -26,7 +26,9 @@ RUN set -x \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/temp" \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/work" \
     && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
-    && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml"
+    && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml" \
+    && rm -f                   "${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar" \
+    && wget -q -P              "${JIRA_INSTALL}/lib" "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre6.jar"
 
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
