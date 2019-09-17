@@ -33,7 +33,7 @@ RUN set -x \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/23915/version/3000020" \
     && chmod -R 700            "${JIRA_HOME}/plugins" \
     && chown -R daemon:daemon  "${JIRA_HOME}/plugins"
-https://marketplace.atlassian.com/download/apps/23915/version/3000020
+    
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
