@@ -52,21 +52,21 @@ RUN set -x \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*AtlassianREST_API_Browser*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211542/version/30210" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*HideFields4JiraGroups*.jar" \
-    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1215195/version/51" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*HealthcheckPlugin*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1215195/version/31" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*drawio*.jar" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*HealthcheckPlugin*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1213808/version/1160" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Automation*.jar" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*drawio*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211413/version/600100010" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Calendar*.jar" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Automation*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211836/version/100501000" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Charting*.jar" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Calendar*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/293/version/20117" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*iCalendar*.jar" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Charting*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/288/version/2330" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*MiscCustomFields*.jar" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*iCalendar*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/72413/version/100400120" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*MiscCustomFields*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/27136/version/100600400" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*EmailTemplateEditor*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211404/version/100430" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Importers*.jar" \
