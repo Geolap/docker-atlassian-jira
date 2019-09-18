@@ -65,8 +65,6 @@ RUN set -x \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/288/version/2330" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*iCalendar*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/72413/version/100400120" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*MiscCustomFields*.jar" \
-    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/27136/version/100600400" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*EmailTemplateEditor*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211404/version/100430" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Importers*.jar" \
