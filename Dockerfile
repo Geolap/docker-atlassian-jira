@@ -72,6 +72,12 @@ RUN set -x \
     && chmod -R 700            "${JIRA_HOME}/plugins" \
     && chown -R daemon:daemon  "${JIRA_HOME}/plugins"
 
+# The jar plugins can be installed via script but the obr plugins need to be installed manually via the UPM.
+# Installation via UPM obligatoire :
+# Automation : https://marketplace.atlassian.com/download/apps/1211836/version/100501000
+# HealthcheckPlugin : https://marketplace.atlassian.com/download/apps/1213808/version/1160
+# iCalendar : https://marketplace.atlassian.com/download/apps/72413/version/100400120
+
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
