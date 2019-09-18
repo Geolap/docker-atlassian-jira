@@ -27,11 +27,67 @@ RUN set -x \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/work" \
     && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
     && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml" \
-    && rm -f                   "${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar" \
-    && wget -q -P              "${JIRA_INSTALL}/lib" "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre6.jar" \
+    && rm -f                            "${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar" \
+    && wget -q -P                       "${JIRA_INSTALL}/lib" "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre6.jar" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*atlassian-universal-plugin-manager-plugin*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/23915/version/139020" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-greenhopper-plugin*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/5129/version/1930" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*scriptrunner-jira*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1215195/version/51" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-misc-custom-fields*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/6820/version/1306" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-suite-utilities*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/27136/version/100600400" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-toolkit*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/5048/version/340" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-watcher-field*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/5142/version/204" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*mailrucal*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/6306/version/126" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*uniqueregexfield*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211040/version/750" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*workflowenhancer*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211043/version/60" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*AtlassianREST_API_Browser*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/575829/version/951" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*HideFields4JiraGroups*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211542/version/30210" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*HealthcheckPlugin*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1215195/version/31" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*drawio*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1213808/version/1160" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Automation*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211413/version/600100010" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Calendar*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211836/version/100501000" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Charting*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/293/version/20117" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*iCalendar*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/288/version/2330" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*MiscCustomFields*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/72413/version/100400120" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*EmailTemplateEditor*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/27136/version/100600400" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*JSU*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211404/version/100430" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Watcher*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/5142/version/204" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Importers*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/6306/version/126" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Mail-RuCalendar*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/32645/version/368" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*PDF-Automation*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211040/version/750" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*DragAndDropFiles*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1212108/version/300100003" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*SupportToolsPlugin*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1212834/version/1000030" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*UniqueRegexCustomField*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/37243/version/3010022" \
+    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*WorkflowEnhancer*.jar" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211043/version/60" \
+    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/575829/version/951" \
     && chmod -R 700            "${JIRA_HOME}/plugins" \
     && chown -R daemon:daemon  "${JIRA_HOME}/plugins"
 
