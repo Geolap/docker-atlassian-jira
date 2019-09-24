@@ -47,8 +47,6 @@ RUN set -x \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/32645/version/368" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-misc-custom-fields*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/27136/version/100600400" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*PDF-Automation*.jar" \
-    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1212108/version/300100003" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-suite-utilities*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/5048/version/340" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*jira-toolkit*.jar" \
