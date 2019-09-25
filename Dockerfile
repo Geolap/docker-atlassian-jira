@@ -35,8 +35,6 @@ RUN set -x \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211413/version/600100010" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*EmailTemplateEditor*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211404/version/100430" \
-    && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*HideFields4JiraGroups*.jar" \
-    && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1215195/version/31" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Calendar*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/293/version/20117" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*Charting*.jar" \
