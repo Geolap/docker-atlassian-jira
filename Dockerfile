@@ -1,8 +1,8 @@
 FROM openjdk:7
 
 # Configuration variables.
-ENV JIRA_HOME     /var/local/atlassian/jira
-ENV JIRA_INSTALL  /usr/local/atlassian/jira
+ENV JIRA_HOME     /var/atlassian/jira
+ENV JIRA_INSTALL  /opt/atlassian/jira
 ENV JIRA_VERSION  6.4.3
 
 # Install Atlassian JIRA and helper tools and setup initial home
@@ -12,6 +12,7 @@ RUN set -x \
     && apt-get install --quiet --yes --no-install-recommends libtcnative-1 xmlstarlet \
     && apt-get clean \
     && mkdir -p                "${JIRA_HOME}" \
+    && mkdir -p                "${JIRA_HOME}/caches/indexes" \
     && chmod -R 700            "${JIRA_HOME}" \
     && chown -R daemon:daemon  "${JIRA_HOME}" \
     && mkdir -p                "${JIRA_INSTALL}/conf/Catalina" \
@@ -26,8 +27,9 @@ RUN set -x \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/temp" \
     && chown -R daemon:daemon  "${JIRA_INSTALL}/work" \
     && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
-    && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml" \
-    && rm -f                            ${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar \
+    && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml"
+
+RUN rm -f                            ${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar \
     && wget -q -P                       "${JIRA_INSTALL}/lib" "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre6.jar" \
     && rm -f                            ${JIRA_HOME}/plugins/installed-plugins/*atlassian-universal-plugin-manager-plugin*.jar \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/23915/version/139020" \
@@ -85,13 +87,13 @@ EXPOSE 8080
 # Set volume mount points for installation and home directory. Changes to the
 # home directory needs to be persisted as well as parts of the installation
 # directory due to eg. logs.
-VOLUME ["/var/local/atlassian/jira", "/usr/local/atlassian/jira"]
+VOLUME ["/var/atlassian/jira", "/opt/atlassian/jira"]
 
 # Set the default working directory as the installation directory.
-WORKDIR /var/local/atlassian/jira
+WORKDIR /var/atlassian/jira
 
 COPY "docker-entrypoint.sh" "/"
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Run Atlassian JIRA as a foreground process by default.
-CMD ["/usr/local/atlassian/jira/bin/catalina.sh", "run"]
+CMD ["/opt/atlassian/jira/bin/catalina.sh", "run"]
