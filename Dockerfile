@@ -30,7 +30,7 @@ RUN set -x \
     && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
     && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml"
 
-RUN rm -f                            ${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar \
+RUN rm -f                               ${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar \
     && wget -q -P                       "${JIRA_INSTALL}/lib" "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre6.jar" \
     && rm -f                            ${JIRA_HOME}/plugins/installed-plugins/*atlassian-universal-plugin-manager-plugin*.jar \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/23915/version/3000150" \
@@ -65,11 +65,11 @@ RUN rm -f                            ${JIRA_INSTALL}/lib/postgresql-9*.jdbc4.jar
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/1211043/version/80" \
     && rm -f                            "${JIRA_HOME}/plugins/installed-plugins/*workflowenhancer*.jar" \
     && wget -q --content-disposition -P "${JIRA_HOME}/plugins/installed-plugins" "https://marketplace.atlassian.com/download/apps/575829/version/1021" \
-    && chmod -R 700            "${JIRA_HOME}/plugins" \
-    && chown -R daemon:daemon  "${JIRA_HOME}/plugins"
-    && rm -f                            "${JIRA_HOME}/dbconfig.xml
-    && add                      dbconfig.xml ${JIRA_HOME}
-    && chown -R daemon:daemon  "${JIRA_HOME}/dbconfig.xml
+    && chmod -R 700                     "${JIRA_HOME}/plugins" \
+    && chown -R daemon:daemon           "${JIRA_HOME}/plugins" \
+    && rm -f                            "${JIRA_HOME}/dbconfig.xml \
+    && add                              dbconfig.xml ${JIRA_HOME} \
+    && chown -R daemon:daemon           "${JIRA_HOME}/dbconfig.xml
 
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
